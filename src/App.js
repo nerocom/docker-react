@@ -9,7 +9,8 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           How the frick are you doing. That's freaking baller!<br />
-          I LIKE PANDAS
+          I LIKE PANDAS<br />
+          ADDED FEATURE BRANCH
         </p>
         <a
           className="App-link"
