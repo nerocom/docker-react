@@ -1,0 +1,41 @@
+# docker compose version
+version: '3'
+
+# containers
+services:
+
+  # container for web app
+  web:
+    # specify the build options
+    build:
+      # use the current directory to build the container
+      context: .
+
+      # specify the docker file
+      dockerfile: dockerfile.dev
+
+    # specify port mapping
+    ports:
+      - "3000:3000"
+
+    # map volumes to container
+    volumes:
+      # ignore this directory, don't overwrite
+      - /app/node_modules
+
+      # map the current folder to /app in the container
+      - .:/app
+
+  # container for test suite
+  test:
+    build:
+      context: .
+
+      dockerfile: dockerfile.dev
+
+    volumes:
+      - /app/node_modules
+      - .:/app
+
+    # override default command and run tests
+    command: ["npm", "run", "test"]
