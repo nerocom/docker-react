@@ -6,4 +6,4 @@ before_install:
   - docker build -t jbrightstores/docker-react -f dockerfile.dev .
 
 script:
-  - docker run jbrightstores/docker-react npm run test -- --coverage
+  - docker run -e CI=true jbrightstores/docker-react npm run test -- --coverage
